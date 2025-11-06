@@ -6,9 +6,15 @@ st.set_page_config(layout="wide")
 matriculas_direito = pd.read_csv("dados/matriculas_direito.csv", sep=';')
 matriculas_direito['semestre'] = matriculas_direito['semestre'].astype(str)
 
+semestres_ordenados = [
+    '2011.1',	'2011.2',	'2012.1',	'2012.2', '2013.1',	'2013.2',	'2014.1',	'2014.2',
+    '2015.1',	'2015.2',	'2016.1',	'2016.2',	'2017.1',	'2017.2',	'2018.1',	'2018.2',
+    '2019.1',	'2019.2',	'2020.5',	'2020.6',	'2020.2',	'2021.1',	'2021.2',	'2022.1',
+    '2022.2',	'2023.1',	'2023.2',	'2024.1',	'2024.2']
+
 df_1 = matriculas_direito[matriculas_direito['nome_componente'] == 'METODOLOGIA DA PESQUISA I'].copy()
 contagem_semestre_descricao_1 = df_1.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_1['semestre'] = pd.Categorical(contagem_semestre_descricao_1['semestre'])
+contagem_semestre_descricao_1['semestre'] = pd.Categorical(contagem_semestre_descricao_1['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_1 = contagem_semestre_descricao_1.sort_values('semestre')
 
 fig_1 = px.line(
@@ -23,7 +29,7 @@ fig_1 = px.line(
 
 df_2 = matriculas_direito[matriculas_direito['nome_componente'] == 'CIENCIA POLITICA I'].copy()
 contagem_semestre_descricao_2 = df_2.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_2['semestre'] = pd.Categorical(contagem_semestre_descricao_2['semestre'])
+contagem_semestre_descricao_2['semestre'] = pd.Categorical(contagem_semestre_descricao_2['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_2 = contagem_semestre_descricao_2.sort_values('semestre')
 
 fig_2 = px.line(
@@ -38,7 +44,7 @@ fig_2 = px.line(
 
 df_3 = matriculas_direito[matriculas_direito['nome_componente'] == 'SOCIOLOGIA E ANTROPOLOGIA GERAL'].copy()
 contagem_semestre_descricao_3 = df_3.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_3['semestre'] = pd.Categorical(contagem_semestre_descricao_3['semestre'])
+contagem_semestre_descricao_3['semestre'] = pd.Categorical(contagem_semestre_descricao_3['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_3 = contagem_semestre_descricao_3.sort_values('semestre')
 
 fig_3 = px.line(
@@ -53,7 +59,7 @@ fig_3 = px.line(
 
 df_4 = matriculas_direito[matriculas_direito['nome_componente'] == 'INTRODUCAO AO ESTUDO DO DIREITO'].copy()
 contagem_semestre_descricao_4 = df_4.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_4['semestre'] = pd.Categorical(contagem_semestre_descricao_4['semestre'])
+contagem_semestre_descricao_4['semestre'] = pd.Categorical(contagem_semestre_descricao_4['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_4 = contagem_semestre_descricao_4.sort_values('semestre')
 
 fig_4 = px.line(
@@ -68,7 +74,7 @@ fig_4 = px.line(
 
 df_5 = matriculas_direito[matriculas_direito['nome_componente'] == 'FILOSOFIA I'].copy()
 contagem_semestre_descricao_5 = df_5.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_5['semestre'] = pd.Categorical(contagem_semestre_descricao_5['semestre'])
+contagem_semestre_descricao_5['semestre'] = pd.Categorical(contagem_semestre_descricao_5['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_5 = contagem_semestre_descricao_5.sort_values('semestre')
 
 fig_5 = px.line(
@@ -83,7 +89,7 @@ fig_5 = px.line(
 
 df_6 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL I'].copy()
 contagem_semestre_descricao_6 = df_6.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_6['semestre'] = pd.Categorical(contagem_semestre_descricao_6['semestre'])
+contagem_semestre_descricao_6['semestre'] = pd.Categorical(contagem_semestre_descricao_6['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_6 = contagem_semestre_descricao_6.sort_values('semestre')
 
 fig_6 = px.line(
@@ -98,7 +104,7 @@ fig_6 = px.line(
 
 df_7 = matriculas_direito[matriculas_direito['nome_componente'] == 'HISTORIA DO DIREITO'].copy()
 contagem_semestre_descricao_7 = df_7.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_7['semestre'] = pd.Categorical(contagem_semestre_descricao_7['semestre'])
+contagem_semestre_descricao_7['semestre'] = pd.Categorical(contagem_semestre_descricao_7['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_7 = contagem_semestre_descricao_7.sort_values('semestre')
 
 fig_7 = px.line(
@@ -113,7 +119,7 @@ fig_7 = px.line(
 
 df_8 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CONSTITUCIONAL I'].copy()
 contagem_semestre_descricao_8 = df_8.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_8['semestre'] = pd.Categorical(contagem_semestre_descricao_8['semestre'])
+contagem_semestre_descricao_8['semestre'] = pd.Categorical(contagem_semestre_descricao_8['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_8 = contagem_semestre_descricao_8.sort_values('semestre')
 
 fig_8 = px.line(
@@ -128,7 +134,7 @@ fig_8 = px.line(
 
 df_9 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PENAL I'].copy()
 contagem_semestre_descricao_9 = df_9.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_9['semestre'] = pd.Categorical(contagem_semestre_descricao_9['semestre'])
+contagem_semestre_descricao_9['semestre'] = pd.Categorical(contagem_semestre_descricao_9['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_9 = contagem_semestre_descricao_9.sort_values('semestre')
 
 fig_9 = px.line(
@@ -143,7 +149,7 @@ fig_9 = px.line(
 
 df_10 = matriculas_direito[matriculas_direito['nome_componente'] == 'ECONOMIA POLITICA'].copy()
 contagem_semestre_descricao_10 = df_10.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_10['semestre'] = pd.Categorical(contagem_semestre_descricao_10['semestre'])
+contagem_semestre_descricao_10['semestre'] = pd.Categorical(contagem_semestre_descricao_10['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_10 = contagem_semestre_descricao_10.sort_values('semestre')
 
 fig_10 = px.line(
@@ -158,7 +164,7 @@ fig_10 = px.line(
 
 df_11 = matriculas_direito[matriculas_direito['nome_componente'] == 'PSICOLOGIA APLICADA AO DIREITO'].copy()
 contagem_semestre_descricao_11 = df_11.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_11['semestre'] = pd.Categorical(contagem_semestre_descricao_11['semestre'])
+contagem_semestre_descricao_11['semestre'] = pd.Categorical(contagem_semestre_descricao_11['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_11 = contagem_semestre_descricao_11.sort_values('semestre')
 
 fig_11 = px.line(
@@ -173,7 +179,7 @@ fig_11 = px.line(
 
 df_12 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL II'].copy()
 contagem_semestre_descricao_12 = df_12.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_12['semestre'] = pd.Categorical(contagem_semestre_descricao_12['semestre'])
+contagem_semestre_descricao_12['semestre'] = pd.Categorical(contagem_semestre_descricao_12['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_12 = contagem_semestre_descricao_12.sort_values('semestre')
 
 fig_12 = px.line(
@@ -188,7 +194,7 @@ fig_12 = px.line(
 
 df_13 = matriculas_direito[matriculas_direito['nome_componente'] == 'FILOSOFIA DO DIREITO'].copy()
 contagem_semestre_descricao_13 = df_13.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_13['semestre'] = pd.Categorical(contagem_semestre_descricao_13['semestre'])
+contagem_semestre_descricao_13['semestre'] = pd.Categorical(contagem_semestre_descricao_13['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_13 = contagem_semestre_descricao_13.sort_values('semestre')
 
 fig_13 = px.line(
@@ -203,7 +209,7 @@ fig_13 = px.line(
 
 df_14 = matriculas_direito[matriculas_direito['nome_componente'] == 'TEORIA GERAL DO PROCESSO'].copy()
 contagem_semestre_descricao_14 = df_14.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_14['semestre'] = pd.Categorical(contagem_semestre_descricao_14['semestre'])
+contagem_semestre_descricao_14['semestre'] = pd.Categorical(contagem_semestre_descricao_14['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_14 = contagem_semestre_descricao_14.sort_values('semestre')
 
 fig_14 = px.line(
@@ -218,7 +224,7 @@ fig_14 = px.line(
 
 df_15 = matriculas_direito[matriculas_direito['nome_componente'] == 'HERMENEUTICA JURIDICA E TEORIA DA ARGUMENTACAO'].copy()
 contagem_semestre_descricao_15 = df_15.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_15['semestre'] = pd.Categorical(contagem_semestre_descricao_15['semestre'])
+contagem_semestre_descricao_15['semestre'] = pd.Categorical(contagem_semestre_descricao_15['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_15 = contagem_semestre_descricao_15.sort_values('semestre')
 
 fig_15 = px.line(
@@ -233,7 +239,7 @@ fig_15 = px.line(
 
 df_16 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CONSTITUCIONAL II'].copy()
 contagem_semestre_descricao_16 = df_16.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_16['semestre'] = pd.Categorical(contagem_semestre_descricao_16['semestre'])
+contagem_semestre_descricao_16['semestre'] = pd.Categorical(contagem_semestre_descricao_16['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_16 = contagem_semestre_descricao_16.sort_values('semestre')
 
 fig_16 = px.line(
@@ -248,7 +254,7 @@ fig_16 = px.line(
 
 df_17 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PENAL II'].copy()
 contagem_semestre_descricao_17 = df_17.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_17['semestre'] = pd.Categorical(contagem_semestre_descricao_17['semestre'])
+contagem_semestre_descricao_17['semestre'] = pd.Categorical(contagem_semestre_descricao_17['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_17 = contagem_semestre_descricao_17.sort_values('semestre')
 
 fig_17 = px.line(
@@ -263,7 +269,7 @@ fig_17 = px.line(
 
 df_18 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL III'].copy()
 contagem_semestre_descricao_18 = df_18.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_18['semestre'] = pd.Categorical(contagem_semestre_descricao_18['semestre'])
+contagem_semestre_descricao_18['semestre'] = pd.Categorical(contagem_semestre_descricao_18['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_18 = contagem_semestre_descricao_18.sort_values('semestre')
 
 fig_18 = px.line(
@@ -278,7 +284,7 @@ fig_18 = px.line(
 
 df_19 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO EMPRESARIAL I'].copy()
 contagem_semestre_descricao_19 = df_19.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_19['semestre'] = pd.Categorical(contagem_semestre_descricao_19['semestre'])
+contagem_semestre_descricao_19['semestre'] = pd.Categorical(contagem_semestre_descricao_19['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_19 = contagem_semestre_descricao_19.sort_values('semestre')
 
 fig_19 = px.line(
@@ -293,7 +299,7 @@ fig_19 = px.line(
 
 df_20 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO INTERNACIONAL PUBLICO'].copy()
 contagem_semestre_descricao_20 = df_20.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_20['semestre'] = pd.Categorical(contagem_semestre_descricao_20['semestre'])
+contagem_semestre_descricao_20['semestre'] = pd.Categorical(contagem_semestre_descricao_20['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_20 = contagem_semestre_descricao_20.sort_values('semestre')
 
 fig_20 = px.line(
@@ -308,7 +314,7 @@ fig_20 = px.line(
 
 df_21 = matriculas_direito[matriculas_direito['nome_componente'] == 'SOCIOLOGIA JURIDICA'].copy()
 contagem_semestre_descricao_21 = df_21.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_21['semestre'] = pd.Categorical(contagem_semestre_descricao_21['semestre'])
+contagem_semestre_descricao_21['semestre'] = pd.Categorical(contagem_semestre_descricao_21['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_21 = contagem_semestre_descricao_21.sort_values('semestre')
 
 fig_21 = px.line(
@@ -323,7 +329,7 @@ fig_21 = px.line(
 
 df_22 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PENAL III'].copy()
 contagem_semestre_descricao_22 = df_22.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_22['semestre'] = pd.Categorical(contagem_semestre_descricao_22['semestre'])
+contagem_semestre_descricao_22['semestre'] = pd.Categorical(contagem_semestre_descricao_22['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_22 = contagem_semestre_descricao_22.sort_values('semestre')
 
 fig_22 = px.line(
@@ -338,7 +344,7 @@ fig_22 = px.line(
 
 df_23 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL CIVIL I'].copy()
 contagem_semestre_descricao_23 = df_23.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_23['semestre'] = pd.Categorical(contagem_semestre_descricao_23['semestre'])
+contagem_semestre_descricao_23['semestre'] = pd.Categorical(contagem_semestre_descricao_23['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_23 = contagem_semestre_descricao_23.sort_values('semestre')
 
 fig_23 = px.line(
@@ -353,7 +359,7 @@ fig_23 = px.line(
 
 df_24 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL IV'].copy()
 contagem_semestre_descricao_24 = df_24.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_24['semestre'] = pd.Categorical(contagem_semestre_descricao_24['semestre'])
+contagem_semestre_descricao_24['semestre'] = pd.Categorical(contagem_semestre_descricao_24['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_24 = contagem_semestre_descricao_24.sort_values('semestre')
 
 fig_24 = px.line(
@@ -368,7 +374,7 @@ fig_24 = px.line(
 
 df_25 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO EMPRESARIAL II'].copy()
 contagem_semestre_descricao_25 = df_25.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_25['semestre'] = pd.Categorical(contagem_semestre_descricao_25['semestre'])
+contagem_semestre_descricao_25['semestre'] = pd.Categorical(contagem_semestre_descricao_25['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_25 = contagem_semestre_descricao_25.sort_values('semestre')
 
 fig_25 = px.line(
@@ -383,7 +389,7 @@ fig_25 = px.line(
 
 df_26 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO ADMINISTRATIVO I'].copy()
 contagem_semestre_descricao_26 = df_26.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_26['semestre'] = pd.Categorical(contagem_semestre_descricao_26['semestre'])
+contagem_semestre_descricao_26['semestre'] = pd.Categorical(contagem_semestre_descricao_26['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_26 = contagem_semestre_descricao_26.sort_values('semestre')
 
 fig_26 = px.line(
@@ -398,7 +404,7 @@ fig_26 = px.line(
 
 df_27 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PENAL IV'].copy()
 contagem_semestre_descricao_27 = df_27.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_27['semestre'] = pd.Categorical(contagem_semestre_descricao_27['semestre'])
+contagem_semestre_descricao_27['semestre'] = pd.Categorical(contagem_semestre_descricao_27['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_27 = contagem_semestre_descricao_27.sort_values('semestre')
 
 fig_27 = px.line(
@@ -413,7 +419,7 @@ fig_27 = px.line(
 
 df_28 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL CIVIL II'].copy()
 contagem_semestre_descricao_28 = df_28.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_28['semestre'] = pd.Categorical(contagem_semestre_descricao_28['semestre'])
+contagem_semestre_descricao_28['semestre'] = pd.Categorical(contagem_semestre_descricao_28['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_28 = contagem_semestre_descricao_28.sort_values('semestre')
 
 fig_28 = px.line(
@@ -428,7 +434,7 @@ fig_28 = px.line(
 
 df_29 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITOS HUMANOS FUNDAMENTAIS'].copy()
 contagem_semestre_descricao_29 = df_29.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_29['semestre'] = pd.Categorical(contagem_semestre_descricao_29['semestre'])
+contagem_semestre_descricao_29['semestre'] = pd.Categorical(contagem_semestre_descricao_29['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_29 = contagem_semestre_descricao_29.sort_values('semestre')
 
 fig_29 = px.line(
@@ -443,7 +449,7 @@ fig_29 = px.line(
 
 df_30 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL V'].copy()
 contagem_semestre_descricao_30 = df_30.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_30['semestre'] = pd.Categorical(contagem_semestre_descricao_30['semestre'])
+contagem_semestre_descricao_30['semestre'] = pd.Categorical(contagem_semestre_descricao_30['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_30 = contagem_semestre_descricao_30.sort_values('semestre')
 
 fig_30 = px.line(
@@ -458,7 +464,7 @@ fig_30 = px.line(
 
 df_31 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO EMPRESARIAL III'].copy()
 contagem_semestre_descricao_31 = df_31.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_31['semestre'] = pd.Categorical(contagem_semestre_descricao_31['semestre'])
+contagem_semestre_descricao_31['semestre'] = pd.Categorical(contagem_semestre_descricao_31['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_31 = contagem_semestre_descricao_31.sort_values('semestre')
 
 fig_31 = px.line(
@@ -473,7 +479,7 @@ fig_31 = px.line(
 
 df_32 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO ADMINISTRATIVO II'].copy()
 contagem_semestre_descricao_32 = df_32.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_32['semestre'] = pd.Categorical(contagem_semestre_descricao_32['semestre'])
+contagem_semestre_descricao_32['semestre'] = pd.Categorical(contagem_semestre_descricao_32['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_32 = contagem_semestre_descricao_32.sort_values('semestre')
 
 fig_32 = px.line(
@@ -488,7 +494,7 @@ fig_32 = px.line(
 
 df_33 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL CIVIL III'].copy()
 contagem_semestre_descricao_33 = df_33.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_33['semestre'] = pd.Categorical(contagem_semestre_descricao_33['semestre'])
+contagem_semestre_descricao_33['semestre'] = pd.Categorical(contagem_semestre_descricao_33['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_33 = contagem_semestre_descricao_33.sort_values('semestre')
 
 fig_33 = px.line(
@@ -503,7 +509,7 @@ fig_33 = px.line(
 
 df_34 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL PENAL I'].copy()
 contagem_semestre_descricao_34 = df_34.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_34['semestre'] = pd.Categorical(contagem_semestre_descricao_34['semestre'])
+contagem_semestre_descricao_34['semestre'] = pd.Categorical(contagem_semestre_descricao_34['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_34 = contagem_semestre_descricao_34.sort_values('semestre')
 
 fig_34 = px.line(
@@ -518,7 +524,7 @@ fig_34 = px.line(
 
 df_35 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO DAS RELACOES DE CONSUMO'].copy()
 contagem_semestre_descricao_35 = df_35.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_35['semestre'] = pd.Categorical(contagem_semestre_descricao_35['semestre'])
+contagem_semestre_descricao_35['semestre'] = pd.Categorical(contagem_semestre_descricao_35['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_35 = contagem_semestre_descricao_35.sort_values('semestre')
 
 fig_35 = px.line(
@@ -533,7 +539,7 @@ fig_35 = px.line(
 
 df_36 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL VI'].copy()
 contagem_semestre_descricao_36 = df_36.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_36['semestre'] = pd.Categorical(contagem_semestre_descricao_36['semestre'])
+contagem_semestre_descricao_36['semestre'] = pd.Categorical(contagem_semestre_descricao_36['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_36 = contagem_semestre_descricao_36.sort_values('semestre')
 
 fig_36 = px.line(
@@ -548,7 +554,7 @@ fig_36 = px.line(
 
 df_37 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO DO TRABALHO I'].copy()
 contagem_semestre_descricao_37 = df_37.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_37['semestre'] = pd.Categorical(contagem_semestre_descricao_37['semestre'])
+contagem_semestre_descricao_37['semestre'] = pd.Categorical(contagem_semestre_descricao_37['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_37 = contagem_semestre_descricao_37.sort_values('semestre')
 
 fig_37 = px.line(
@@ -562,7 +568,7 @@ fig_37 = px.line(
 )
 df_38 = matriculas_direito[matriculas_direito['nome_componente'] == 'AUTOCOMPOSICAO DE CONFLITOS: NEGOCIACAO, CONCILIACAO E MEDIACAO'].copy()
 contagem_semestre_descricao_38 = df_38.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_38['semestre'] = pd.Categorical(contagem_semestre_descricao_38['semestre'])
+contagem_semestre_descricao_38['semestre'] = pd.Categorical(contagem_semestre_descricao_38['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_38 = contagem_semestre_descricao_38.sort_values('semestre')
 
 fig_38 = px.line(
@@ -577,7 +583,7 @@ fig_38 = px.line(
 
 df_39 = matriculas_direito[matriculas_direito['nome_componente'] == 'CARREIRAS JURIDICAS'].copy()
 contagem_semestre_descricao_39 = df_39.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_39['semestre'] = pd.Categorical(contagem_semestre_descricao_39['semestre'])
+contagem_semestre_descricao_39['semestre'] = pd.Categorical(contagem_semestre_descricao_39['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_39 = contagem_semestre_descricao_39.sort_values('semestre')
 
 fig_39 = px.line(
@@ -592,7 +598,7 @@ fig_39 = px.line(
 
 df_40 = matriculas_direito[matriculas_direito['nome_componente'] == 'PECAS JURIDICAS II (EXTRAJUDICIAIS)'].copy()
 contagem_semestre_descricao_40 = df_40.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_40['semestre'] = pd.Categorical(contagem_semestre_descricao_40['semestre'])
+contagem_semestre_descricao_40['semestre'] = pd.Categorical(contagem_semestre_descricao_40['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_40 = contagem_semestre_descricao_40.sort_values('semestre')
 
 fig_40 = px.line(
@@ -607,7 +613,7 @@ fig_40 = px.line(
 
 df_41 = matriculas_direito[matriculas_direito['nome_componente'] == 'PECAS JURIDICAS I (JUDICIAIS)'].copy()
 contagem_semestre_descricao_41 = df_41.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_41['semestre'] = pd.Categorical(contagem_semestre_descricao_41['semestre'])
+contagem_semestre_descricao_41['semestre'] = pd.Categorical(contagem_semestre_descricao_41['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_41 = contagem_semestre_descricao_41.sort_values('semestre')
 
 fig_41 = px.line(
@@ -622,7 +628,7 @@ fig_41 = px.line(
 
 df_42 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL CIVIL IV'].copy()
 contagem_semestre_descricao_42 = df_42.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_42['semestre'] = pd.Categorical(contagem_semestre_descricao_42['semestre'])
+contagem_semestre_descricao_42['semestre'] = pd.Categorical(contagem_semestre_descricao_42['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_42 = contagem_semestre_descricao_42.sort_values('semestre')
 
 fig_42 = px.line(
@@ -637,7 +643,7 @@ fig_42 = px.line(
 
 df_43 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL PENAL II'].copy()
 contagem_semestre_descricao_43 = df_43.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_43['semestre'] = pd.Categorical(contagem_semestre_descricao_43['semestre'])
+contagem_semestre_descricao_43['semestre'] = pd.Categorical(contagem_semestre_descricao_43['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_43 = contagem_semestre_descricao_43.sort_values('semestre')
 
 fig_43 = px.line(
@@ -652,7 +658,7 @@ fig_43 = px.line(
 
 df_44 = matriculas_direito[matriculas_direito['nome_componente'] == 'ETICA GERAL E PROFISSIONAL'].copy()
 contagem_semestre_descricao_44 = df_44.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_44['semestre'] = pd.Categorical(contagem_semestre_descricao_44['semestre'])
+contagem_semestre_descricao_44['semestre'] = pd.Categorical(contagem_semestre_descricao_44['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_44 = contagem_semestre_descricao_44.sort_values('semestre')
 
 fig_44 = px.line(
@@ -667,7 +673,7 @@ fig_44 = px.line(
 
 df_45 = matriculas_direito[matriculas_direito['nome_componente'] == 'METODOLOGIA DA PESQUISA II'].copy()
 contagem_semestre_descricao_45 = df_45.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_45['semestre'] = pd.Categorical(contagem_semestre_descricao_45['semestre'])
+contagem_semestre_descricao_45['semestre'] = pd.Categorical(contagem_semestre_descricao_45['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_45 = contagem_semestre_descricao_45.sort_values('semestre')
 
 fig_45 = px.line(
@@ -682,7 +688,7 @@ fig_45 = px.line(
 
 df_46 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL VII'].copy()
 contagem_semestre_descricao_46 = df_46.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_46['semestre'] = pd.Categorical(contagem_semestre_descricao_46['semestre'])
+contagem_semestre_descricao_46['semestre'] = pd.Categorical(contagem_semestre_descricao_46['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_46 = contagem_semestre_descricao_46.sort_values('semestre')
 
 fig_46 = px.line(
@@ -697,7 +703,7 @@ fig_46 = px.line(
 
 df_47 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO DO TRABALHO II'].copy()
 contagem_semestre_descricao_47 = df_47.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_47['semestre'] = pd.Categorical(contagem_semestre_descricao_47['semestre'])
+contagem_semestre_descricao_47['semestre'] = pd.Categorical(contagem_semestre_descricao_47['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_47 = contagem_semestre_descricao_47.sort_values('semestre')
 
 fig_47 = px.line(
@@ -712,7 +718,7 @@ fig_47 = px.line(
 
 df_48 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO TRIBUTARIO'].copy()
 contagem_semestre_descricao_48 = df_48.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_48['semestre'] = pd.Categorical(contagem_semestre_descricao_48['semestre'])
+contagem_semestre_descricao_48['semestre'] = pd.Categorical(contagem_semestre_descricao_48['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_48 = contagem_semestre_descricao_48.sort_values('semestre')
 
 fig_48 = px.line(
@@ -727,7 +733,7 @@ fig_48 = px.line(
 
 df_49 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL COLETIVO'].copy()
 contagem_semestre_descricao_49 = df_49.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_49['semestre'] = pd.Categorical(contagem_semestre_descricao_49['semestre'])
+contagem_semestre_descricao_49['semestre'] = pd.Categorical(contagem_semestre_descricao_49['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_49 = contagem_semestre_descricao_49.sort_values('semestre')
 
 fig_49 = px.line(
@@ -742,7 +748,7 @@ fig_49 = px.line(
 
 df_50 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO CIVIL VIII'].copy()
 contagem_semestre_descricao_50 = df_50.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_50['semestre'] = pd.Categorical(contagem_semestre_descricao_50['semestre'])
+contagem_semestre_descricao_50['semestre'] = pd.Categorical(contagem_semestre_descricao_50['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_50 = contagem_semestre_descricao_50.sort_values('semestre')
 
 fig_50 = px.line(
@@ -757,7 +763,7 @@ fig_50 = px.line(
 
 df_51 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO DO TRABALHO III'].copy()
 contagem_semestre_descricao_51 = df_51.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_51['semestre'] = pd.Categorical(contagem_semestre_descricao_51['semestre'])
+contagem_semestre_descricao_51['semestre'] = pd.Categorical(contagem_semestre_descricao_51['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_51 = contagem_semestre_descricao_51.sort_values('semestre')
 
 fig_51 = px.line(
@@ -772,7 +778,7 @@ fig_51 = px.line(
 
 df_52 = matriculas_direito[matriculas_direito['nome_componente'] == 'PRATICA JURIDICA III - ATENDIMENTOS'].copy()
 contagem_semestre_descricao_52 = df_52.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_52['semestre'] = pd.Categorical(contagem_semestre_descricao_52['semestre'])
+contagem_semestre_descricao_52['semestre'] = pd.Categorical(contagem_semestre_descricao_52['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_52 = contagem_semestre_descricao_52.sort_values('semestre')
 
 fig_52 = px.line(
@@ -787,7 +793,7 @@ fig_52 = px.line(
 
 df_53 = matriculas_direito[matriculas_direito['nome_componente'] == 'DIREITO PROCESSUAL DO TRABALHO'].copy()
 contagem_semestre_descricao_53 = df_53.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_53['semestre'] = pd.Categorical(contagem_semestre_descricao_53['semestre'])
+contagem_semestre_descricao_53['semestre'] = pd.Categorical(contagem_semestre_descricao_53['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_53 = contagem_semestre_descricao_53.sort_values('semestre')
 
 fig_53 = px.line(
@@ -802,7 +808,7 @@ fig_53 = px.line(
 
 df_54 = matriculas_direito[matriculas_direito['nome_componente'] == 'ATENDIMENTOS - ANDAMENTOS PROCESSUAIS'].copy()
 contagem_semestre_descricao_54 = df_54.groupby(['semestre', 'descricao']).size().reset_index(name='quantidade')
-contagem_semestre_descricao_54['semestre'] = pd.Categorical(contagem_semestre_descricao_54['semestre'])
+contagem_semestre_descricao_54['semestre'] = pd.Categorical(contagem_semestre_descricao_54['semestre'], categories=semestres_ordenados)
 contagem_semestre_descricao_54 = contagem_semestre_descricao_54.sort_values('semestre')
 
 fig_54 = px.line(
