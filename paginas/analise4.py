@@ -588,8 +588,8 @@ fig_24 = go.Figure(data=
             dict(label='INTRODUCAO AO ESTUDO DO DIREITO', values=medias_direito_civil_7['INTRODUCAO AO ESTUDO DO DIREITO'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2)),
             dict(label='DIREITO CIVIL I', values=medias_direito_civil_7['DIREITO CIVIL I'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2)),
             dict(label='DIREITO CIVIL II', values=medias_direito_civil_7['DIREITO CIVIL II'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2)),
-            dict(label='DIREITO CIVIL III', values=medias_direito_civil_7['DIREITO CIVIL VI'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2)),
-            dict(label='DIREITO CIVIL IV', values=medias_direito_civil_7['DIREITO CIVIL VII'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2))
+            dict(label='DIREITO CIVIL VI', values=medias_direito_civil_7['DIREITO CIVIL VI'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2)),
+            dict(label='DIREITO CIVIL VII', values=medias_direito_civil_7['DIREITO CIVIL VII'].values, range=[5, 10], tickvals=np.arange(5, 10.1, 0.2))
         ]
     )
 )
